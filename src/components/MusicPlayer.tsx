@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import { useAppStore } from "../store/store";
 import { Button } from "@mantine/core";
+import { useEffect } from "react";
 
-const MusicPlayer: React.FC = () => {
-  const activeSong = useAppStore((state) => state.activeSong);
+interface MusicPlayerProps {
+  currentSong: string | null;
+}
+
+const MusicPlayer: React.FC<MusicPlayerProps> = ({ currentSong }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const songUrls: { [key: string]: string } = {
     stormy: "/music/stormy.mp3",
@@ -13,16 +15,17 @@ const MusicPlayer: React.FC = () => {
   };
 
   useEffect(() => {
-    console.log(activeSong);
-    const audioPlayer = document.getElementById(
-      "audioPlayer"
-    ) as HTMLAudioElement | null;
-    if (audioPlayer && activeSong !== null) {
-      audioPlayer.src = songUrls[activeSong];
-      console.log(audioPlayer.src);
-      audioPlayer.play();
+    if (currentSong) {
+      const audioPlayer = document.getElementById(
+        "audioPlayer"
+      ) as HTMLAudioElement | null;
+      if (audioPlayer) {
+        audioPlayer.src = songUrls[currentSong]; // Ensure song is not null before accessing songUrls
+        console.log(audioPlayer.src);
+        audioPlayer.play();
+      }
     }
-  }, [activeSong]);
+  }, [currentSong, songUrls]);
 
   const handleSongPause = () => {
     const audioPlayer = document.getElementById(

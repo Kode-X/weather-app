@@ -1,55 +1,72 @@
 import React, { useState } from "react";
-import { Collapse, Text } from "@mantine/core";
+import { Box, Collapse, Paper, Text } from "@mantine/core";
 import { useAppStore } from "../store/store";
+import MusicPlayer from "./MusicPlayer";
+import { useClickOutside } from "@mantine/hooks";
 
 interface NavbarProps {
   tabs: { label: string; value: string }[];
+  setCurrentSong: (songKey: string) => void;
 }
 
-const NavbarForCities: React.FC<NavbarProps> = ({ tabs }) => {
+interface NavItem {
+  value: string;
+  label: string;
+}
+
+const NavbarForCities: React.FC<NavbarProps> = ({ tabs, setCurrentSong }) => {
+  const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
   const setActiveTab = useAppStore((state) => state.setActiveTab);
 
-  const [currentSong, setCurrentSong] = useState<string | null>(null);
-
-  const handleTabClick = (tabValue: string) => {
-    setActiveTab(tabValue);
-
-    handleSongPlay(tabValue);
+  const [currentTabLabel, setCurrentTabLabel] = useState<string | null>(
+    tabs[3].label
+  );
+  const handleTitleClick = () => {
+    setIsOpen(!isOpen);
+  };
+  const handleNavItemClick = (item: NavItem) => {
+    setIsOpen(false);
+    setActiveTab(item.value);
+    setCurrentSong(item.value);
+    setCurrentTabLabel(item.label);
   };
 
-  const songUrls: { [key: string]: string } = {
-    stormy: "/music/stormy.mp3",
-    cloudy: "/music/cloudy.mp3",
-    rainy: "/music/rainy.mp3",
-    sunny: "/music/sunny.mp3",
-  };
-
-  const handleSongPlay = (songKey: string) => {
-    setCurrentSong(songKey);
-    const audioPlayer = document.getElementById(
-      "audioPlayer"
-    ) as HTMLAudioElement | null;
-    if (audioPlayer) {
-      audioPlayer.src = songUrls[songKey];
-      console.log(audioPlayer.src);
-      audioPlayer.play();
-    }
-  };
-
-  const handleSongPause = () => {
-    const audioPlayer = document.getElementById(
-      "audioPlayer"
-    ) as HTMLAudioElement | null;
-    if (audioPlayer) {
-      audioPlayer.pause();
-    }
-  };
+  const dropdownRef = useClickOutside(() => {
+    setIsOpen(false); // Close dropdown when clicking outside
+  });
 
   return (
-    <div style={{ display: "flex", gap: "10px" }}>
-      <Collapse in={true}>
+    <>
+      <div className="relative">
+        <Text
+          className="cursor-pointer"
+          onClick={handleTitleClick}
+          variant="h"
+          style={{ marginBottom: "1rem" }}
+        >
+          {currentTabLabel}
+        </Text>
+        {isOpen && (
+          <Paper
+            ref={dropdownRef}
+            shadow="md"
+            className="absolute z-10 mt-2 w-48 bg-white rounded-md shadow-lg"
+          >
+            {tabs.map((item) => (
+              <Text
+                key={item.value}
+                onClick={() => handleNavItemClick(item)}
+                className="cursor-pointer hover:bg-gray-100 rounded-md p-2"
+              >
+                {item.label}
+              </Text>
+            ))}
+          </Paper>
+        )}
+      </div>
+      {/* <div style={{ gap: "10px" }}>
         {tabs.map((tab) => (
-          <>
+          <Box>
             <Text
               key={tab.value}
               component="button"
@@ -60,14 +77,12 @@ const NavbarForCities: React.FC<NavbarProps> = ({ tabs }) => {
             >
               {tab.label}
             </Text>
-          </>
+          </Box>
         ))}
-      </Collapse>
 
-      <audio id="audioPlayer">
-        <source src="" type="audio/mpeg" />
-      </audio>
-    </div>
+       
+      </div> */}
+    </>
   );
 };
 
