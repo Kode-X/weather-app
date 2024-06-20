@@ -1,22 +1,16 @@
 // src/App.tsx
-import React from 'react';
-import CurrentWeather from './components/CurrentWeather';
-import HourlyForecast from './components/HourlyForecast';
-import WeeklyForecast from './components/WeeklyForecast';
+
+import BackgroundSection from "./sections/BackgroundSection";
+import MainSection from "./sections/MainSection";
+import { useAppStore } from "./store/store";
 
 const App: React.FC = () => {
+  const activeTab = useAppStore((state) => state.activeTab) ?? "stormy";
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <div className="max-w-4xl mx-auto">
-        <CurrentWeather />
-        <div className="mt-4">
-          <HourlyForecast />
-        </div>
-        <div className="mt-4">
-          <WeeklyForecast />
-        </div>
-      </div>
-    </div>
+    <BackgroundSection weather={activeTab}>
+      {/* <MusicPlayer /> */}
+      <MainSection />
+    </BackgroundSection>
   );
 };
 
