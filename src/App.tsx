@@ -8,7 +8,6 @@ const App: React.FC = () => {
   const activeTab = useAppStore((state) => state.activeTab) ?? "stormy";
   return (
     <BackgroundSection weather={activeTab}>
-      {/* <MusicPlayer /> */}
       <MainSection />
     </BackgroundSection>
   );

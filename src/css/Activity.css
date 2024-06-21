@@ -1,0 +1,20 @@
+.activity {
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.activity img {
+    max-width: 100%;
+    height: auto;
+}
+
+.activity h2 {
+    font-size: 1rem;
+    margin: 10px 0 0 0;
+}
+
+.actMainTitle {
+    font-size: 1.5rem;
+    color: white;
+}
