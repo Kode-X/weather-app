@@ -16,9 +16,6 @@ const GeneralInfoCard: React.FC<GeneralInfoProps> = ({
   return (
     <div className="px-10">
       <NavbarForCities tabs={tabs} setCurrentSong={setCurrentSong} />
-      <Text className="text-white text-2xl font-bold pb-10">
-        {capitalizeFirstLetter(activeTab)}
-      </Text>
       <TempratureDates />
     </div>
   );

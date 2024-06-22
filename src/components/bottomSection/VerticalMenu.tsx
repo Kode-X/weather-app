@@ -4,7 +4,7 @@ import { leftTopNavbar } from '../../utils/getMockData';
 
 const VerticalMenu: React.FC = () => {
     return (
-      <div className="p- flex flex-col space-y-4">
+      <div>
         {leftTopNavbar.map((item) => {
           const IconComponent = item.icon;
           return (

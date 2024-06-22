@@ -34,7 +34,7 @@ const Activities = () => {
       <div className="flex">
         {activities &&
           activities.map((activity) => (
-            <Activity img={activity?.img} distance={activity?.distance} />
+            <Activity key={`act${activity.img}`} img={activity?.img} distance={activity?.distance} />
           ))}
       </div>
     </div>

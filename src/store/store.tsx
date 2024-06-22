@@ -9,7 +9,7 @@ interface AppState {
 }
 
 export const useAppStore = create<AppState>((set) => ({
-  activeTab: null,
+  activeTab: "Stormy",
   activeSong: null,
   setActiveTab: (tabName: string) => set({ activeTab: tabName }),
   setActiveSong: (songName: string) => set({ activeSong: songName }),
