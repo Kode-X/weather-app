@@ -77,10 +77,6 @@ const WeatherCarousel: React.FC = () => {
         slideGap="md"
         loop
         align="start"
-        // breakpoints={[
-        //   { maxWidth: 'md', slideSize: '50%' },
-        //   { maxWidth: 'sm', slideSize: '100%', slideGap: 0 },
-        // ]}
       >
         {Object.keys(mockupData).map((day) => (
           <Carousel.Slide key={day} onClick={() => handleDayClick(day)}>

@@ -15,7 +15,7 @@ interface NavItem {
 }
 
 const NavbarForCities: React.FC<NavbarProps> = ({ tabs, setCurrentSong }) => {
-  const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
+  const [isOpen, setIsOpen] = useState(false);
   const setActiveTab = useAppStore((state) => state.setActiveTab);
 
   const [currentTabLabel, setCurrentTabLabel] = useState<string | null>(
@@ -32,12 +32,12 @@ const NavbarForCities: React.FC<NavbarProps> = ({ tabs, setCurrentSong }) => {
   };
 
   const dropdownRef = useClickOutside(() => {
-    setIsOpen(false); // Close dropdown when clicking outside
+    setIsOpen(false); 
   });
 
   return (
     <div className="relative">
-      {/* Εικονίδιο τοποθεσίας */}
+    
       <Button onClick={handleTitleClick}>
         <div className="flex cursor-pointer text-white text-lg font-bold  items-center space-x-2">
           <IconMapPin size={24} />
@@ -47,7 +47,7 @@ const NavbarForCities: React.FC<NavbarProps> = ({ tabs, setCurrentSong }) => {
           <IconArrowRight size={24} />
         </div>
       </Button>
-      {/* Δεξιό βελάκι */}
+     
       {isOpen && (
         <Paper
           ref={dropdownRef}

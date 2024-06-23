@@ -1,5 +1,3 @@
-import '../../css/Activity.css'
-
 interface ActivityProps {
     img: string;
     distance: number;

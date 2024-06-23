@@ -20,8 +20,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ currentSong }) => {
         "audioPlayer"
       ) as HTMLAudioElement | null;
       if (audioPlayer) {
-        audioPlayer.src = songUrls[currentSong]; // Ensure song is not null before accessing songUrls
-        console.log(audioPlayer.src);
+        audioPlayer.src = songUrls[currentSong];
         audioPlayer.play();
       }
     }

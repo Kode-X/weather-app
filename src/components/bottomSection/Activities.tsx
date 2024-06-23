@@ -1,5 +1,6 @@
-import { IconHeart } from "@tabler/icons-react";
+import { IconHeartFilled } from "@tabler/icons-react";
 import Activity from "./Activity";
+import '../../css/Activity.css'
 
 interface Activity {
   img: string;
@@ -27,10 +28,10 @@ const Activities = () => {
   ];
   return (
     <div>
-      <div className="flex actMainTitle">
-        <IconHeart />
-        <h2>Activities in your area</h2>
-      </div>
+     <div className="flex items-center actMainTitle">
+      <IconHeartFilled style={{ fontSize: '24px', marginRight: '8px' }} />
+      <h2>Activities in your area</h2>
+    </div>
       <div className="flex">
         {activities &&
           activities.map((activity) => (
