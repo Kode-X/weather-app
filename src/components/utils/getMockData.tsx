@@ -28,3 +28,59 @@ export const dataChart = [
   { name: "June", uv: 2390, pv: 22, amt: 2500 },
   { name: "July", uv: 3490, pv: 21, amt: 2100 },
 ];
+
+export interface DayData {
+  realFeel: number;
+  wind: number;
+  chanceOfRain: number;
+  uvIndex: number;
+}
+
+interface WeatherData {
+  [day: string]: DayData;
+}
+
+export const mockupData: WeatherData = {
+  Monday: {
+    realFeel: Math.random() * 30 + 10,
+    wind: Math.random() * 20,
+    chanceOfRain: Math.random() * 100,
+    uvIndex: Math.floor(Math.random() * 11),
+  },
+  Tuesday: {
+    realFeel: Math.random() * 30 + 10,
+    wind: Math.random() * 20,
+    chanceOfRain: Math.random() * 100,
+    uvIndex: Math.floor(Math.random() * 11),
+  },
+  Wednesday: {
+    realFeel: Math.random() * 30 + 10,
+    wind: Math.random() * 20,
+    chanceOfRain: Math.random() * 100,
+    uvIndex: Math.floor(Math.random() * 11),
+  },
+  Thursday: {
+    realFeel: Math.random() * 30 + 10,
+    wind: Math.random() * 20,
+    chanceOfRain: Math.random() * 100,
+    uvIndex: Math.floor(Math.random() * 11),
+  },
+  Friday: {
+    realFeel: Math.random() * 30 + 10,
+    wind: Math.random() * 20,
+    chanceOfRain: Math.random() * 100,
+    uvIndex: Math.floor(Math.random() * 11),
+  },
+  Saturday: {
+    realFeel: Math.random() * 30 + 10,
+    wind: Math.random() * 20,
+    chanceOfRain: Math.random() * 100,
+    uvIndex: Math.floor(Math.random() * 11),
+  },
+  Sunday: {
+    realFeel: Math.random() * 30 + 10,
+    wind: Math.random() * 20,
+    chanceOfRain: Math.random() * 100,
+    uvIndex: Math.floor(Math.random() * 11),
+  },
+};

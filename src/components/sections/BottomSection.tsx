@@ -1,5 +1,5 @@
 import { Group } from "@mantine/core";
-import Card from "../Card";
+import MyCard from "../MyCard";
 import Activities from "../bottomSection/Activities";
 import VerticalMenu from "../bottomSection/VerticalMenu";
 import WeatherForecastChart from "../bottomSection/WeatherForecastChart";
@@ -10,26 +10,26 @@ const BottomSection: React.FC = () => (
     <div className="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
       {/* First column */}
       <div className="col-span-1 sm:col-span-1 lg:col-span-1  order-3 sm:order-1 hidden sm:block">
-        <Card className="h-full">
+        <MyCard className="h-full">
           <VerticalMenu />
-        </Card>
+        </MyCard>
       </div>
 
       {/* Second column */}
       <div className="col-span-1 sm:col-span-2 lg:col-span-4 order-2 sm:order-2">
-        <Card className="hidden sm:block">
+        <MyCard className="hidden sm:block">
           <Activities />
-        </Card>
-        <Card className="mb-0">
+        </MyCard>
+        <MyCard className="mb-0">
           <WeatherForecastChart />
-        </Card>
+        </MyCard>
       </div>
 
       {/* Third column */}
       <div className="col-span-1 sm:col-span-1 lg:col-span-2  order-1 sm:order-3">
-        <Card className="h-full">
+        <MyCard className="h-full">
           <WeatherForecastDetails />
-        </Card>
+        </MyCard>
       </div>
     </div>
   </div>

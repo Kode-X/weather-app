@@ -5,7 +5,7 @@ interface CardProps {
   children?: React.ReactNode;
 }
 
-const Card: React.FC<CardProps> = ({ children, className }) => {
+const MyCard: React.FC<CardProps> = ({ children, className }) => {
   const defaultClasses = 'p-5 bg-white bg-opacity-50 rounded-lg shadow-md mb-5';
 
   return (
@@ -15,4 +15,4 @@ const Card: React.FC<CardProps> = ({ children, className }) => {
   );
 };
 
-export default Card;
+export default MyCard;

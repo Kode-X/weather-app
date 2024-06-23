@@ -6,7 +6,7 @@ import { dataChart } from "../utils/getMockData";
 
 
 const MyBarChart: React.FC = () => (
-  <div style={{ width: "100%", height: 200, }}>
+  <div style={{ width: "100%", height: 200}}>
     <ResponsiveContainer width="100%" height="100%">
       <LineChart width={300} height={100} data={dataChart}>
         <Line
