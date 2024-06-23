@@ -1,9 +1,9 @@
 import { Text } from "@mantine/core";
 import { useState } from "react";
-import MusicPlayer from "../components/MusicPlayer";
-import MainWeatherIcon from "../components/topSection/MainWeatherIcon";
-import NavbarForCities from "../components/topSection/NavbarForCities";
-import TempratureDates from "../components/topSection/TempratureDates";
+import MusicPlayer from "../MusicPlayer";
+import MainWeatherIcon from "../topSection/MainWeatherIcon";
+import NavbarForCities from "../topSection/NavbarForCities";
+import TempratureDates from "../topSection/TempratureDates";
 import { useAppStore } from "../store/store";
 import { tabs } from "../utils/getMockData";
 import { capitalizeFirstLetter } from "../utils/getUtils";

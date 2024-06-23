@@ -1,9 +1,9 @@
 import { Group } from "@mantine/core";
-import Card from "../components/Card";
-import Activities from "../components/bottomSection/Activities";
-import VerticalMenu from "../components/bottomSection/VerticalMenu";
-import WeatherForecastChart from "../components/bottomSection/WeatherForecastChart";
-import WeatherForecastDetails from "../components/bottomSection/WeatherForecastDetails";
+import Card from "../Card";
+import Activities from "../bottomSection/Activities";
+import VerticalMenu from "../bottomSection/VerticalMenu";
+import WeatherForecastChart from "../bottomSection/WeatherForecastChart";
+import WeatherForecastDetails from "../bottomSection/WeatherForecastDetails";
 
 const BottomSection: React.FC = () => (
   <div className="flex-1 flex flex-col justify-end">

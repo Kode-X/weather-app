@@ -2,7 +2,7 @@ import { Button, Paper, Text } from "@mantine/core";
 import { useClickOutside } from "@mantine/hooks";
 import { IconArrowRight, IconMapPin } from "@tabler/icons-react";
 import React, { useState } from "react";
-import { useAppStore } from "../../store/store";
+import { useAppStore } from "../store/store";
 
 interface NavbarProps {
   tabs: { label: string; value: string }[];

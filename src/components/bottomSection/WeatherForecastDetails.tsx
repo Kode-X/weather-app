@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Carousel } from "@mantine/carousel";
 import { Card, Text, Group } from "@mantine/core";
 import "@mantine/carousel/styles.css";
-import { capitalizeFirstThreeChars, getCurrentDay } from "../../utils/getUtils";
+import { capitalizeFirstThreeChars, getCurrentDay } from "../utils/getUtils";
 
 interface DayData {
   realFeel: number;

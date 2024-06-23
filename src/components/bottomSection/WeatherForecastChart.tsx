@@ -1,7 +1,7 @@
 import React from "react";
 import { Line, LineChart, ResponsiveContainer } from "recharts";
 import CustomizedLabelChart from "./CustomizedLabelChart";
-import { dataChart } from "../../utils/getMockData";
+import { dataChart } from "../utils/getMockData";
 
 
 
